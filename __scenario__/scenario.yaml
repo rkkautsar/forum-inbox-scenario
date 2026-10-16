@@ -1,0 +1,9 @@
+schema: 1
+id: forum-inbox
+version: 0.1.0
+refPrefix: v0.1.0/
+title: Forum Inbox
+description: Plan and deliver a private activity inbox with Louibot.
+characters: {}
+stages:
+  - inbox
