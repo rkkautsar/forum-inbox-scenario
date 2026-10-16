@@ -1,0 +1,12 @@
+name: Scenario validation
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    uses: rkkautsar/pr-flood.lol/.github/workflows/scenario-release.yml@2d337c3c32a583da37bcf8525c89136cd105f256
+    with:
+      engine_ref: 2d337c3c32a583da37bcf8525c89136cd105f256
