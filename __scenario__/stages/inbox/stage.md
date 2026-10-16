@@ -5,8 +5,8 @@ requiredCheck: Forum Inbox E2E / behavior
 workflowPath: .github/workflows/inbox-e2e.yml
 protectedFiles:
   - .github/workflows/inbox-e2e.yml
-  - test/e2e/helpers.ts
-  - test/e2e/inbox.test.ts
+  - playwright.config.ts
+  - test/e2e/inbox.spec.ts
   - package.json
   - package-lock.json
 evaluation:
@@ -22,6 +22,6 @@ endings:
 
 Members need a reliable way to catch up on activity in their own discussions. Build an activity inbox for replies and votes on threads created by the signed-in member.
 
-Expose GET /api/inbox as an object containing an items array. Each item needs an opaque id, type (reply or vote), postId, title, actor, and read state. Include events on the current member's own threads only, exclude events authored by that member, order newest first, and return at most 20 items. Opening an event navigates to its original thread. Unread items must be distinguishable, and opening one marks it read. Read state is private to the current member.
+Expose GET /api/inbox as an object containing an items array. Each item needs an opaque id, type (reply or vote), postId, thread title, actor display name, and read state. Include events on the current member's own threads only, exclude events authored by that member, order newest first, and return at most 20 items. Opening an event navigates to its original thread using the #post-<id> anchor. Unread items must be distinguishable, and opening one marks it read. Read state is private to the current member.
 
-Add a clear inbox entry to the forum interface, a useful empty state, and a way back to the thread feed. Keep the E2E suite passing for replies, votes, privacy boundaries, newest-20 ordering, navigation, and private read state.
+Add an accessible button named Activity inbox, a useful empty state, and a way back to the thread feed. Render inbox events as links whose names include the actor and thread title; reply links also show the reply text, vote links say who voted, and unread links show Unread. Keep the protected browser E2E suite passing for replies, votes, privacy boundaries, newest-20 ordering, navigation, and private read state.
