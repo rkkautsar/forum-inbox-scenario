@@ -6,4 +6,6 @@ The milestone is a private activity inbox for replies and votes on a member's ow
 
 The protected check is Forum Inbox E2E / behavior. It builds the real Forum app, opens it in Chromium, and exercises the public UI and HTTP API with separate demo identities. The suite is deliberately separate from the ordinary application tests so the starting baseline can keep passing its own CI while the milestone is incomplete.
 
-This checkout is prepared locally. Before publishing it as a catalog scenario, create a dedicated GitHub repository, add it to PR Flood's scenario repository allowlist, and pin the scenario release workflow to an engine commit that includes milestone-mode support.
+The full milestone E2E check runs on the default branch after changes are merged. It does not run on intermediate pull requests; the ordinary Forum checks still run on each pull request.
+
+This repository publishes immutable catalog packages from matching `vMAJOR.MINOR.PATCH` tags. Existing playthroughs stay pinned to their package version; new launches use the latest stable release.
